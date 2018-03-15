@@ -36,20 +36,12 @@ class App extends Component {
 
 
 render(){
-    const r = JSON.stringify(this.state.teams);
-    console.log(r);
-
     return (
       <div className="App">
         <Group groupLetter = "A" teams={this.state.groupA}/>
-        <br/>
         <Group groupLetter = "B" teams={this.state.groupB}/>
-        <br/>
         <Group groupLetter = "C" teams={this.state.groupC}/>
-        <br/>
         <Group groupLetter = "D" teams={this.state.groupD}/>
-        <br/>
-
       </div>
     );
   }

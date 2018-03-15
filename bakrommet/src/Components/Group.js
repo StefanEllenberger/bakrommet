@@ -14,11 +14,11 @@ class Group extends Component {
     return (
       <div className="Teams">
         <table border="1">
-        <caption>Group {this.props.groupLetter}</caption>
+        <caption><strong>Group {this.props.groupLetter}</strong></caption>
         <tbody>
           <tr>
-          <td>Team</td>
-          <td>Points</td>
+          <td><strong>Team</strong></td>
+          <td><strong>Points</strong></td>
           </tr>
           {teams}
           </tbody>
