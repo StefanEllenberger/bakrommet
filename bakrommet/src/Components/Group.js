@@ -3,14 +3,15 @@ import Team from './Team';
 
 class Group extends Component {
   render() {
-    let teams;
-    if(this.props.teams){
-      teams = this.props.teams.map(team => {
-        return(
-          <Team key={team.name} team={team} />
-        );
-      });
-    }
+    let teamlist = [];
+    if (this.props.groupLetter){
+      teamlist.push(<Team key={this.props.team1} name={this.props.team1} score="0"/>);
+      teamlist.push(<Team key={this.props.team2} name={this.props.team2} score="0"/>);
+      teamlist.push(<Team key={this.props.team3} name={this.props.team3} score="0"/>);
+      teamlist.push(<Team key={this.props.team4} name={this.props.team4} score="0"/>);
+
+    };
+
     return (
       <div className="Teams">
         <table border="1">
@@ -20,7 +21,7 @@ class Group extends Component {
           <td><strong>Team</strong></td>
           <td><strong>Points</strong></td>
           </tr>
-          {teams}
+          {teamlist}
           </tbody>
         </table>
       </div>
