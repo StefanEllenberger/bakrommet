@@ -29,7 +29,8 @@ class App extends Component {
       {
         groups: JSON.parse(jsonGroup),
         fixtures: jsonFixtures,
-        scoreboard: jsonScores2
+        scoreboard: jsonScores1
+//        scoreboard: jsonScores2
 
       }
     );
