@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Fixture from './Fixture';
 
 class Fixtures extends Component {
+  //consider constructor here
   handleChange(e){
     const selection = e.target.value;
     this.props.changeGroupSelection(selection);
