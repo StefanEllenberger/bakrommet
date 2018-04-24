@@ -15,15 +15,18 @@ class Group extends Component {
     return (
       <div className="Teams">
         <table border="1">
-        <caption><strong>Group {this.props.groupLetter}</strong></caption>
-        <tbody>
-          <tr>
-          <td><strong>Team</strong></td>
-          <td><strong>Points</strong></td>
-          </tr>
-          {teamlist}
+          <tbody>
+            <tr>
+              <td align="center" colSpan="2"><strong>Group {this.props.groupLetter}</strong></td>
+            </tr>
+            <tr>
+            <td><strong>Team</strong></td>
+            <td><strong>Points</strong></td>
+            </tr>
+            {teamlist}
           </tbody>
         </table>
+
       </div>
     );
   }

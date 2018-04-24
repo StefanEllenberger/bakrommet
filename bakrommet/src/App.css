@@ -17,3 +17,14 @@ tr:nth-child(even){background-color: #f2f2f2;}
   flex-basis: 0;
 
 }
+
+.btn {
+  color: black;
+  background-color: white;
+}
+
+.btn-selected {
+  color: white;
+  background-color: green
+
+}
