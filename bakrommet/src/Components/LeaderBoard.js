@@ -35,7 +35,7 @@ class LeaderBoard extends Component {
   }
 
   nextPage(e){
-    if (this.state.page + 1 == this.state.pages){
+    if (this.state.page + 1 === this.state.pages){
       this.setState({nextDisabled: true})
     } else {
       this.setState({nextDisabled: false})
@@ -45,7 +45,7 @@ class LeaderBoard extends Component {
   }
 
   prevPage(e){
-    if (this.state.page - 1 == 0){
+    if (this.state.page - 1 === 0){
       this.setState({prevDisabled: true})
     } else {
       this.setState({prevDisabled: false})
