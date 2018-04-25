@@ -10,20 +10,36 @@ class LeaderBoard extends Component {
       size: 0,
       pages: 0,
       nextDisabled: false,
-      prevDisabled: true
+      prevDisabled: true,
+      playerid: 3, /*will be sent through later*/
+      player: []
     }
   }
 
   componentDidMount(){
+    if (this.props.playerid){
+      this.setState({
+        playerid: this.props.playerid
+      })
+    }
     if (this.props.scoreboard){
       let i = 0;
       let len = this.props.scoreboard.scores.length;
       let pages = Math.floor(len/5);
       let templist = [];
+      let playerlist = [];
       for (i; i < len; i++){
-          templist.push(<LeaderBoardEntry position={i+1}
+          templist.push(<LeaderBoardEntry id={this.props.scoreboard.scores[i].id} position={i+1}
             name={this.props.scoreboard.scores[i].name}
             score={this.props.scoreboard.scores[i].score} key={i+1} />);
+          if (this.props.scoreboard.scores[i].id == this.state.playerid){
+            playerlist.push(<LeaderBoardEntry id={this.props.scoreboard.scores[i].id} position={i+1}
+              name={this.props.scoreboard.scores[i].name}
+              score={this.props.scoreboard.scores[i].score} key={i+1} />);
+            this.setState({
+              player: playerlist
+            })
+          }
       }
       this.setState({
         entryList: templist,
@@ -31,6 +47,7 @@ class LeaderBoard extends Component {
         pages: pages
       })
     }
+
 
   }
 
@@ -51,7 +68,6 @@ class LeaderBoard extends Component {
       this.setState({prevDisabled: false})
     }
     this.setState({page: this.state.page - 1, nextDisabled: false})
-
   }
 
 
@@ -66,6 +82,7 @@ class LeaderBoard extends Component {
       for (i; i < len; i++){
         pageList.push(this.state.entryList[i]);
       }
+      pageList.push(this.state.player[0]);
     } else {
       console.log("render not ok")
     }

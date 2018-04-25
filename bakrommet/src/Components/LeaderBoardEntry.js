@@ -5,7 +5,7 @@ class LeaderBoardEntry extends Component {
     return (
     <tr className="LeaderBoardEntry">
       <td>{this.props.position}</td>
-      <td>{this.props.name}</td>
+      <td>unique id: {this.props.id} - name: "{this.props.name}"</td>
       <td>{this.props.score}</td>
     </tr>
     );
