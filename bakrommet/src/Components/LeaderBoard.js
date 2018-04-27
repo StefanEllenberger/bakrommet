@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import LeaderBoardEntry from './LeaderBoardEntry';
 
+
 class LeaderBoard extends Component {
   constructor(){
     super();
@@ -11,9 +12,9 @@ class LeaderBoard extends Component {
       pages: 0,
       nextDisabled: false,
       prevDisabled: true,
-      playerid: 1, /*will be sent through later*/
-      playerscore: -1,
-      player: []
+      playerid: 49, /*will be sent through later*/
+      player: [],
+      playerscore: -1
     }
   }
 
@@ -28,21 +29,29 @@ class LeaderBoard extends Component {
       let len = this.props.scoreboard.scores.length;
       let pages = Math.floor(len/5);
       let templist = [];
-      let playerlist = [];
       for (i; i < len; i++){
-          templist.push(<LeaderBoardEntry id={this.props.scoreboard.scores[i].id} position={i+1}
-            name={this.props.scoreboard.scores[i].name}
-            score={this.props.scoreboard.scores[i].score} key={i+1} />);
-          if (this.props.scoreboard.scores[i].id == this.state.playerid){
-            playerlist.push(<LeaderBoardEntry id={this.props.scoreboard.scores[i].id} position={i+1}
-              name={this.props.scoreboard.scores[i].name}
-              score={this.props.scoreboard.scores[i].score} key={i+1} />);
-            this.setState({
-              player: playerlist,
-              playerscore: this.props.scoreboard.scores[i].score
-            })
-          }
-      }
+        var object = {
+          id: this.props.scoreboard.scores[i].id,
+          position: i+1,
+          name: this.props.scoreboard.scores[i].name,
+          score: this.props.scoreboard.scores[i].score,
+          key: i+1
+      };
+      templist.push(object);
+        if (this.props.scoreboard.scores[i].id == this.state.playerid){
+          var player = {
+            id: this.props.scoreboard.scores[i].id,
+            position: i+1,
+            name: this.props.scoreboard.scores[i].name,
+            score: this.props.scoreboard.scores[i].score,
+            key: i+1
+        }
+          this.setState({
+            player: player,
+            playerscore: this.props.scoreboard.scores[i].score
+          })
+        }
+    }
       this.setState({
         entryList: templist,
         size: len,
@@ -72,28 +81,42 @@ class LeaderBoard extends Component {
     this.setState({page: this.state.page - 1, nextDisabled: false})
   }
 
-  generateList(){
-
-  }
-
-
-
-
 
   render() {
     let pageList = [];
-    if (this.state.entryList){
-      let len;
-      let i = (5*this.state.page);
-      let pscore = this.state.playerscore;
+    let i = (5*this.state.page);
+    let len = i+5;
+    if (this.state.entryList[0]){
+
+      if (this.state.playerscore && (this.state.playerscore > this.state.entryList[i].score)){
+        pageList.push(<LeaderBoardEntry id={this.state.player.id}
+          position={this.state.player.position}
+          name="XXXXXXXX"
+          score={this.state.player.score}
+          key={this.state.player.position} />);
+}
+
       for (i; i < len; i++){
-        if (pscore > this.state.entryList[i])
-        pageList.push(this.state.entryList[i]);
+        pageList.push(<LeaderBoardEntry
+          id={this.state.entryList[i].id}
+          position={this.state.entryList[i].position}
+          name={this.state.entryList[i].name}
+          score={this.state.entryList[i].score} key={this.state.entryList[i].position} />);
+          }
+
+      if (this.state.playerscore &&(this.state.playerscore < this.state.entryList[len-1].score)){
+        pageList.push(<LeaderBoardEntry id={this.state.player.id}
+          position={this.state.player.position}
+          name="XXXXXXXX"
+          score={this.state.player.score}
+          key={this.state.player.position} />);
       }
-      pageList.push(this.state.player[0]);
-    } else {
-      console.log("render not ok")
     }
+
+
+
+
+
 
 
     return (

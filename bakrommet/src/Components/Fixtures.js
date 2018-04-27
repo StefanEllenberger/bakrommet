@@ -24,7 +24,7 @@ class Fixtures extends Component {
             team2={this.props.fixtures.matches[i].team2.teamName} group={this.props.fixtures.matches[i].group} gameN={i+1}/>);
         } else if (selection === "all"){
           fixlist.push(<Fixture date={this.props.fixtures.matches[i].when} team1={this.props.fixtures.matches[i].team1.teamName}
-            team2={this.props.fixtures.matches[i].team2.teamName} group={this.props.fixtures.matches[i].group} gameN={i+1}/>);
+            team2={this.props.fixtures.matches[i].team2.teamName} group={this.props.fixtures.matches[i].group} gameN={i+1} key={i+1}/>);
 
         } else {
           console.log(selection + " is an invalid selection.");
@@ -40,7 +40,7 @@ class Fixtures extends Component {
         <form>
           <select id="groupSelect" onChange={this.handleChange.bind(this)}>
             <option value="all">Select group to filter</option>
-            {groups.map(group => <option value={group}>Group {group}</option>)}
+            {groups.map(group => <option value={group} key={group} >Group {group}</option>)}
           </select>
         </form>
         <table>

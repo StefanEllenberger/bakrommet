@@ -3,7 +3,9 @@ td, th {
     padding: 10px;
 }
 
-tr:nth-child(even){background-color: #f2f2f2;}
+/*
+every other line has color
+tr:nth-child(even){background-color: #f2f2f2;}*/
 
 
 .flex-container {

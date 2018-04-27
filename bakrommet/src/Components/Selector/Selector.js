@@ -11,8 +11,10 @@ class Selector extends Component {
       let i;
       let len = this.props.fixtures.matches.length;
       for (i = 0; i < len; i++){
-          fixlist.push(<tr><td>Match {i+1}</td><td><SelectionFixture team1={this.props.fixtures.matches[i].team1.teamName}
-            team2={this.props.fixtures.matches[i].team2.teamName} gameN={i+1}/></td> <td><SelectionButtons id={i+1}/></td></tr>);
+          fixlist.push(<tr key={i+1}><td>Match {i+1}</td><td><SelectionFixture
+            team1={this.props.fixtures.matches[i].team1.teamName}
+            team2={this.props.fixtures.matches[i].team2.teamName}
+            gameN={i+1}/></td><td><SelectionButtons id={i+1}/></td></tr>);
         }
 
   }
