@@ -18,9 +18,9 @@ class App extends Component {
   //check definitions for when they render
   //turn json call into a setState that creates the teamlist
   componentWillMount() {
-    var jsonGroup = require('C:/Users/Stefan/IdeaProjects/bakrommet.net/bakrommet/src/data/groups.json');
-    var jsonFixtures = require('C:/Users/Stefan/IdeaProjects/bakrommet.net/bakrommet/src/data/fixtures.json');
-    var jsonPlayers = require('C:/Users/Stefan/IdeaProjects/bakrommet.net/bakrommet/src/data/players.json');
+    var jsonGroup = require('./data/groups.json');
+    var jsonFixtures = require('./data/fixtures.json');
+    var jsonPlayers = require('./data/players.json');
 
 
 
