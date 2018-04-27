@@ -11,7 +11,8 @@ class LeaderBoard extends Component {
       pages: 0,
       nextDisabled: false,
       prevDisabled: true,
-      playerid: 3, /*will be sent through later*/
+      playerid: 1, /*will be sent through later*/
+      playerscore: -1,
       player: []
     }
   }
@@ -37,7 +38,8 @@ class LeaderBoard extends Component {
               name={this.props.scoreboard.scores[i].name}
               score={this.props.scoreboard.scores[i].score} key={i+1} />);
             this.setState({
-              player: playerlist
+              player: playerlist,
+              playerscore: this.props.scoreboard.scores[i].score
             })
           }
       }
@@ -70,6 +72,10 @@ class LeaderBoard extends Component {
     this.setState({page: this.state.page - 1, nextDisabled: false})
   }
 
+  generateList(){
+
+  }
+
 
 
 
@@ -77,9 +83,11 @@ class LeaderBoard extends Component {
   render() {
     let pageList = [];
     if (this.state.entryList){
+      let len;
       let i = (5*this.state.page);
-      let len = i+5;
+      let pscore = this.state.playerscore;
       for (i; i < len; i++){
+        if (pscore > this.state.entryList[i])
         pageList.push(this.state.entryList[i]);
       }
       pageList.push(this.state.player[0]);
