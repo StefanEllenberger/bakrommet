@@ -5,7 +5,7 @@ import './LeaderBoardEntry.css';
 class LeaderBoardEntry extends Component {
   render() {
     let player = "LeaderBoardEntry";
-    if (this.props.name === "XXXXXXXX"){
+    if (this.props.id === this.props.playerid){
       player = "player";
     }
 

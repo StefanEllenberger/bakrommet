@@ -84,16 +84,17 @@ class LeaderBoard extends Component {
 
   render() {
     let pageList = [];
+    let playerDisplayed = false;
     let i = (5*this.state.page);
     let len = i+5;
     if (this.state.entryList[0]){
-
+      //if player is ahead of page
       if (this.state.playerscore && (this.state.playerscore > this.state.entryList[i].score)){
         pageList.push(<LeaderBoardEntry id={this.state.player.id}
           position={this.state.player.position}
           name="XXXXXXXX"
           score={this.state.player.score}
-          key={this.state.player.position} />);
+          key={this.state.player.position} playerid={this.state.playerid}/>);
 }
 
       for (i; i < len; i++){
@@ -101,16 +102,32 @@ class LeaderBoard extends Component {
           id={this.state.entryList[i].id}
           position={this.state.entryList[i].position}
           name={this.state.entryList[i].name}
-          score={this.state.entryList[i].score} key={this.state.entryList[i].position} />);
-          }
+          score={this.state.entryList[i].score} key={this.state.entryList[i].position}
+          playerid={this.state.playerid}/>);
+          if (this.state.entryList[i].id === this.state.player.id){
+            playerDisplayed = true;
+          }}
 
+      //if player is behind page
       if (this.state.playerscore &&(this.state.playerscore < this.state.entryList[len-1].score)){
+
         pageList.push(<LeaderBoardEntry id={this.state.player.id}
           position={this.state.player.position}
           name="XXXXXXXX"
           score={this.state.player.score}
-          key={this.state.player.position} />);
+          key={this.state.player.position}
+          playerid={this.state.playerid}/>);
       }
+      if (playerDisplayed){
+        pageList.push(<LeaderBoardEntry
+          id={this.state.entryList[len].id}
+          position={this.state.entryList[len].position}
+          name={this.state.entryList[len].name}
+          score={this.state.entryList[len].score} key={this.state.entryList[len].position}
+          playerid={this.state.playerid}/>);
+          }
+
+
     }
 
 
