@@ -36,7 +36,6 @@ class Fixtures extends Component {
 
     return (
       <div className="Fixtures">
-        <h2>Fixtures</h2>
         <form>
           <select id="groupSelect" onChange={this.handleChange.bind(this)}>
             <option value="all">Select group to filter</option>
