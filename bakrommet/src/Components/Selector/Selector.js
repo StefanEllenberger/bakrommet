@@ -3,11 +3,16 @@ import SelectionFixture from './SelectionFixture';
 import SelectionButtons from './SelectionButtons';
 
 class Selector extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      count: 0
+    }
+  }
 
   render() {
     let fixlist = [];
-
-    if (this.props.fixtures){
+    if (this.props.fixtures.matches){
       let i;
       let len = this.props.fixtures.matches.length;
       for (i = 0; i < len; i++){
@@ -22,16 +27,16 @@ class Selector extends Component {
 
     return (
       <div>
-      <table>
-      <tbody>
-      <tr>
-      <th>Match #</th>
-      <th>Fixture</th>
-      <th>Selection</th>
-      </tr>
-      {fixlist}
-      </tbody>
-      </table>
+        <table>
+          <tbody>
+          <tr>
+          <th>Match #</th>
+          <th>Fixture</th>
+          <th>Selection</th>
+          </tr>
+          {fixlist}
+          </tbody>
+        </table>
 
 
       </div>

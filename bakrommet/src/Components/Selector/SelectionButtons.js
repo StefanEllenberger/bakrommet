@@ -14,9 +14,9 @@ class SelectionButtons extends Component {
 
 
   render() {
-    const btn1 = "__Home";
-    const btn2 = "__Draw";
-    const btn3 = "__Away";
+    const btn1 = "Home";
+    const btn2 = "Draw";
+    const btn3 = "Away";
 
     return (
       <form className="container" onChange={this.handleChange}>

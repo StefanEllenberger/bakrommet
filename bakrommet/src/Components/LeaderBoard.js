@@ -38,7 +38,7 @@ class LeaderBoard extends Component {
           key: i+1
       };
       templist.push(object);
-        if (this.props.scoreboard.scores[i].id == this.state.playerid){
+        if (this.props.scoreboard.scores[i].id === this.state.playerid){
           var player = {
             id: this.props.scoreboard.scores[i].id,
             position: i+1,
