@@ -2,22 +2,27 @@ import React, { Component } from 'react';
 import Fixture from './Fixture';
 
 class Fixtures extends Component {
-  //consider constructor here
+  constructor(props){
+    super(props);
+    this.state = {
+      group: "all"
+    }
+  }
   handleChange(e){
     const selection = e.target.value;
-    this.props.changeGroupSelection(selection);
+    this.setState(
+      {
+        group: selection
+      });
 
   }
   render() {
     let fixlist = [];
     let groups = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
-
-
-
-    if (this.props.fixtures){
+    if (this.props.fixtures.matches){
       let i;
       let len = this.props.fixtures.matches.length;
-      let selection = this.props.groupSelection;
+      let selection = this.state.group;
       for (i = 0; i < len; i++){
         if (selection === this.props.fixtures.matches[i].group){
           fixlist.push(<Fixture date={this.props.fixtures.matches[i].when} team1={this.props.fixtures.matches[i].team1.teamName}
@@ -25,11 +30,8 @@ class Fixtures extends Component {
         } else if (selection === "all"){
           fixlist.push(<Fixture date={this.props.fixtures.matches[i].when} team1={this.props.fixtures.matches[i].team1.teamName}
             team2={this.props.fixtures.matches[i].team2.teamName} group={this.props.fixtures.matches[i].group} gameN={i+1} key={i+1}/>);
-
         } else {
-          console.log(selection + " is an invalid selection.");
         }
-
   }
 
     };

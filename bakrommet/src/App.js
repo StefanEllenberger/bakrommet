@@ -21,9 +21,7 @@ class App extends Component {
 
 
 
-  //when fetching from API, do it from CWM or CDM
-  //check definitions for when they render
-  //turn json call into a setState that creates the teamlist
+  //when fetching from API, do it from CWM or CDM, check definitions for when they render
   componentDidMount() {
     var jsonGroup = require('./data/groups.json');
     var jsonFixtures = require('./data/fixtures.json');
@@ -39,13 +37,8 @@ class App extends Component {
   }
 
 
-
-
   changeGroupSelection(groupSelection){
     this.setState({groupSelection});}
-
-
-
 
 
 render(){
@@ -70,7 +63,7 @@ render(){
     <div>
     <h2>Fixtures</h2>
       <div className="flex-container">
-        <Fixtures groupSelection={this.state.groupSelection} changeGroupSelection={this.changeGroupSelection.bind(this)} fixtures={this.state.fixtures}/>
+        <Fixtures fixtures={this.state.fixtures}/>
       </div>
 
     </div>
