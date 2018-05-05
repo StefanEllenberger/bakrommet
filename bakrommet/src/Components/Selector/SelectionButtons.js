@@ -20,7 +20,8 @@ class SelectionButtons extends Component {
 
     return (
       <form className="container" onChange={this.handleChange}>
-        <label className="col-sm-4">{btn1}
+        <label className="col-sm-4">
+        {btn1}
           <input value="home" type="radio" name={this.props.id}/>
           <span className="checkmark"></span>
         </label>

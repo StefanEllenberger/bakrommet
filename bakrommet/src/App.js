@@ -21,7 +21,7 @@ class App extends Component {
 
 
 
-  //when fetching from API, do it from CWM or CDM, check definitions for when they render
+ //when fetching from API, do it from CWM or CDM, check definitions for when they render
   componentDidMount() {
     var jsonGroup = require('./data/groups.json');
     var jsonFixtures = require('./data/fixtures.json');
@@ -89,35 +89,40 @@ render(){
 
   let groups = this.state.groups;
     return (
-      <Router>
-        <div>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/leaderboard">Leaderboard</Link>
-            </li>
-            <li>
-              <Link to="/fixtures">Fixtures</Link>
-            </li>
-            <li>
-              <Link to="/groups">Groups</Link>
-            </li>
-            <li>
-              <Link to="/selections">Selections</Link>
-            </li>
-          </ul>
+      <div>
+      <div class="flex-container-header">
+      <img src={ require('./resources/header.png') } width="500" />
+      </div>
+        <Router>
+          <div>
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/leaderboard">Leaderboard</Link>
+              </li>
+              <li>
+                <Link to="/fixtures">Fixtures</Link>
+              </li>
+              <li>
+                <Link to="/groups">Groups</Link>
+              </li>
+              <li>
+                <Link to="/selections">Selections</Link>
+              </li>
+            </ul>
 
-          <hr />
+            <hr/>
 
-          <Route exact path="/" component={HomeC} />
-          <Route path="/leaderboard" component={LeaderBoardC} />
-          <Route path="/fixtures" component={FixturesC} />
-          <Route path="/groups"  component={GroupsC}/>
-          <Route path="/selections"  component={SelectionsC}/>
-        </div>
-      </Router>
+            <Route exact path="/" component={HomeC}/>
+            <Route path="/leaderboard" component={LeaderBoardC}/>
+            <Route path="/fixtures" component={FixturesC}/>
+            <Route path="/groups"  component={GroupsC}/>
+            <Route path="/selections"  component={SelectionsC}/>
+          </div>
+        </Router>
+      </div>
     );
   }
 }

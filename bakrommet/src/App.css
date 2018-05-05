@@ -27,10 +27,18 @@ ul {
 }
 
 
-.flex-container {
+.flex-container-header {
   display: flex;
   flex-flow: row wrap;
+  background-color: #8E0809;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
 }
+
+.flex-container-header > img {
+  max-width:100%;
+}
+
 
 
 .Teams {
