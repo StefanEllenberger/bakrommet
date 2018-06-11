@@ -90,7 +90,7 @@ render(){
   let groups = this.state.groups;
     return (
       <div>
-      <div class="flex-container-header">
+      <div className="flex-container-header">
       <img src={ require('./resources/header.png') } width="500" />
       </div>
         <Router>
@@ -116,8 +116,9 @@ render(){
             <hr/>
 
             <Route exact path="/" component={HomeC}/>
+            {/*
             <Route path="/leaderboard" component={LeaderBoardC}/>
-            <Route path="/fixtures" component={FixturesC}/>
+            */}<Route path="/fixtures" component={FixturesC}/>
             <Route path="/groups"  component={GroupsC}/>
             <Route path="/selections"  component={SelectionsC}/>
           </div>

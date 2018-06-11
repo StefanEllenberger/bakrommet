@@ -13,27 +13,24 @@ class SelectionButtons extends Component {
 };
 
 
-  render() {
-    const btn1 = "Home";
-    const btn2 = "Draw";
-    const btn3 = "Away";
 
+  render() {
     return (
-      <form className="container" onChange={this.handleChange}>
-        <label className="col-sm-4">
-        {btn1}
-          <input value="home" type="radio" name={this.props.id}/>
-          <span className="checkmark"></span>
-        </label>
-        <label className="col-sm-4">{btn2}
-          <input value="draw" type="radio" name={this.props.id} />
-          <span className="checkmark"></span>
-        </label>
-        <label className="col-sm-4">{btn3}
-          <input value="away" type="radio" name={this.props.id}/>
-          <span className="checkmark"></span>
-        </label>
-      </form>
+      <div>
+      <select name="homescore">
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+      </select>
+      ------
+      <select name="awayscore">
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+      </select>
+      </div>
     );
   }
 }

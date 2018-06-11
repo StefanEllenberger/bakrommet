@@ -32,7 +32,7 @@ class Selector extends Component {
           <tr>
           <th>Match #</th>
           <th>Fixture</th>
-          <th>Selection</th>
+          <th>Prediction</th>
           </tr>
           {fixlist}
           </tbody>
